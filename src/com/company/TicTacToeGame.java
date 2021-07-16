@@ -27,6 +27,22 @@ class TicTacToeGame {
         return moveChoice;
     }
     /*
+        Method to Show the board
+    */
+    public static void showBoard(char[] boardToShow)
+    {
+        int count=0;
+        for(int i=0;i<boardToShow.length;i++)
+        {
+            count++;
+            System.out.print("[ "+boardToShow[i]+" ]  ");
+            if(count == 3){
+                System.out.println("\n");
+                count = 0;
+            }
+        }
+    }
+    /*
         main Method
     */
     public static void main(String[] arg) {
@@ -37,6 +53,7 @@ class TicTacToeGame {
         char playerChoice = playersMoveChoice();
         System.out.println("** FOR computer");
         char computerChoice = playersMoveChoice();
+        showBoard(play1Board);
     }
 }
 
