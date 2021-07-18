@@ -10,7 +10,7 @@ class TicTacToeGame {
     */
     public static char[] createBoard() {
         // Initializing Empty Array of Board
-        for (int i = 0; i < board.length-1; i++) {
+        for (int i = 1; i < board.length; i++) {
             board[i] = ' ';
         }
         return board;
@@ -36,10 +36,10 @@ class TicTacToeGame {
     public static void showBoard(char[] boardToShow)
     {
         int count=0;
-        for(int i=0;i<boardToShow.length-1;i++)
+        for(int i=1;i<boardToShow.length;i++)
         {
             count++;
-            System.out.print((i+1)+"[ "+boardToShow[i]+" ]  ");
+            System.out.print((i)+"[ "+boardToShow[i]+" ]  ");
             if(count == 3){
                 System.out.println("\n");
                 count = 0;
@@ -52,8 +52,10 @@ class TicTacToeGame {
     public static char[] moveToDesiredLocation(char[] oldBoard)
     {
         Scanner dlo = new Scanner(System.in);
-        System.out.println("enter a location where you want to add input");
-        int location = (dlo.nextInt() - 1);
+        System.out.println("This is the Board");
+        showBoard(oldBoard);
+        System.out.println("check empty spaces in above board and enter a location where you want to add input");
+        int location = (dlo.nextInt());
         if(oldBoard[location] == ' ')
         {
             oldBoard[location] = playersMoveChoice();
