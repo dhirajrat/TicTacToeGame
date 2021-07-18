@@ -66,6 +66,29 @@ class TicTacToeGame {
         return oldBoard;
     }
     /*
+        Player choice - This method is choosing player to play
+    */
+    public static String playerChoice()
+    {
+        String p;
+        System.out.println("Enter your choice as 1 for Head or as 0 for Tail to play");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        int i = (int) (Math.random() *10 )/2;
+        if(choice == i)
+        {
+            System.out.println("You WON the toss user will play the game");
+            p="user";
+        }
+        else
+        {
+            System.out.println("You LOSS the toss Computer will play the game");
+            p= "computer";
+        }
+        System.out.println("Choice of Playing Player is [ "+p+" ]");
+        return p;
+    }
+    /*
         main Method
     */
     public static void main(String[] arg) {
@@ -73,7 +96,7 @@ class TicTacToeGame {
         char[] play1Board = createBoard();
         // Taking Inputs for player and computer
         System.out.println("** FOR player");
-        char playerChoice = playersMoveChoice();
+        char playerMoveChoice = playersMoveChoice();
         System.out.println("** FOR computer");
         char computerChoice = playersMoveChoice();
         // calling showBoard method
@@ -81,6 +104,7 @@ class TicTacToeGame {
         // Fill out the location on board
         play1Board=moveToDesiredLocation(play1Board);
         showBoard(play1Board);
+        String player = playerChoice();
     }
 }
 
